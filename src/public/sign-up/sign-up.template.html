@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 style="text-align:center">Please fill the details to sign up to our Restaurant<h2>
+    <fieldset>
+        <form name="regForm" class="regForm" novalidate>
+            <input type="text" name="firstname" placeholder="First name"
+              ng-model="signup.userdata.firstName"
+              required>
+            <span class="warning" ng-if="signup.userdata.firstName=='' && regForm.firstname.$touched ">
+              First Name can't be empty
+            </span>
+            <br><br>
+
+            <input type="text" name="lastname" placeholder="Last name"
+              ng-model="signup.userdata.lastName"
+              required>
+            <span class="warning" ng-if="signup.userdata.lastName=='' && regForm.lastname.$touched ">
+                Last Name can't be empty
+            </span>
+            <br><br>
+
+            <input type="email" name="email" placeholder="Email"
+            ng-model="signup.userdata.email"
+            required>
+            <span class="warning"
+              ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Email should be in a valid format : test@domain
+          </span><br><br>
+
+          <input type="text" name="phone" placeholder="Mobile-No ##########"
+          ng-model="signup.userdata.phone"
+          pattern="(\d{10})" required>
+          <span class="warning" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ##########
+          </span>
+          <br><br>
+
+          <input type="text" name="favdish" placeholder="Favorite dish menu number"
+            ng-model="signup.userdata.favItem" ng-blur="signup.checkFavItem()"
+            required>
+          <span class="warning" ng-if="!signup.favitemExist">
+              No such menu number exists
+          </span>
+          <br><br>
+
+          <button
+           ng-disabled="regForm.$invalid"
+           ng-click="signup.submitflagactivate();signup.checkFavItem()">Submit</button>
+
+           <div style="margin-top: 10px; color:green" ng-if="signup.completed">
+             Your details has been saved successfully.Go to My-info link to check your details
+           </div>
+
+        </form>
+    </fieldset>
+</div>

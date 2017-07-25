@@ -1,0 +1,15 @@
+<div class = "container">
+<h2 ng-if="!myinfo.infoExist" style="color:white; text-align:center ; margin-top:30px">Not Signed Up Yet.
+<a ui-sref="public.signup" style="color:green">Sign up Now!</a></h2>
+<div ng-if="myinfo.infoExist">
+  <h2>Hello {{myinfo.userdata.firstName}} , Welcome to our restaurant , Please find your details below</h2>
+  <div class="myinfo">
+    First Name : {{myinfo.userdata.firstName}}<br><br>
+    Last Name  : {{myinfo.userdata.lastName}}<br><br>
+    Phone      : {{myinfo.userdata.phone}}<br><br>
+    Email      : {{myinfo.userdata.email}}<br><br>
+    Fav Item   : {{myinfo.userdata.favItem}}<br><br>
+  </div>
+</div>
+    <menu-item menu-item = "myinfo.itemdetails"></menu-item>
+</div>
